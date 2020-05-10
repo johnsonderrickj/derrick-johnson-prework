@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  body {
+    font-size: 12px;
+    line-height: 12px;
+    color: black;
+  }
+
+  header {
+    background: gray;
+    margin-bottom: 24px;
+  }
+
+  section {
+      padding-top: 20%;
+      padding-bottom: 20%;
+  }
+
+  #left {
+      float: left;
+      background: blue;
+      width: 50%;
+  }
+
+  #right {
+      float: right;
+      background: red;
+      width: 25%;
+  }
+
+  footer {
+      background: green;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+  }
