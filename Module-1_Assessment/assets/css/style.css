@@ -1,0 +1,24 @@
+body {
+    background-image: url(../images/stonehaven.png);
+}
+
+#footer {
+    color: #777777;
+    font-size: x-small;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    background-color: #666666;
+    border-top: 4px solid #4aaaa5;
+    padding-top: 12px;
+}
+
+#top {
+    background-color: #ffffff;
+    border-bottom: 3px solid #cccccc;
+}
+
+#jumbo {
+    background-color: #ffffff;
+    border: 2px solid #dddddd;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
