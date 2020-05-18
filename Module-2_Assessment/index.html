@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Twins Hangman Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <header class="page-header">
+        <h1 class="text-center">Minnesota Twins Hangman Game</h1>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center" id="lastWord"></h2>
+        </div>
+
+        <div class="row">
+            <div class="col" id="wordImage">
+                <img class="img-responsive" src="assets/images/twins1.png" alt="twins.png">
+            </div>
+            <div class="col text-center main-content">
+                <div class="row">
+                    <h3 id="start">Press any key to get started!</h3>
+                </div>
+                <div class="row">
+                    <h3 id="wins">Wins</h3>
+                </div>
+                <div class="row">
+                    <h3 id="currentWord">Current Word</h3>
+                </div>
+                <div class="row">
+                    <h3 id="remainingGuesses">Number of Guesses Remaining</h3>
+                </div>
+                <div class="row">
+                    <h3 id="lettersGuessed">Letters Already Guessed</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
