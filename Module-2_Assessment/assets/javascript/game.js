@@ -1,23 +1,30 @@
-const words = ['baldelli', 'adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'kepler', 'polanco', 'rosario', 'sano'];
+displayWins = document.querySelector('#wins');
+displayWord = document.querySelector('#currentWord');
+displayGuesses = document.querySelector('#remainingGuesses');
+displayWrong = document.querySelector('#lettersGuessed');
+displayLast = document.querySelector('#lastWord');
 
-var chosenWord = words[Math.floor(Math.random() * words.length)];
-
-var wins = document.querySelector('#wins');
-var current = document.querySelector('#currentWord');
-var remain = document.querySelector('#remainingGuesses');
-var letters = document.querySelector('#lettersGuessed');
-
+const wordList = ['baldelli', 'adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'kepler', 'polanco', 'rosario', 'sano'];
+var chosenWord = wordList[Math.floor(Math.random() * words.length)];
 var winCount = 0;
 var guesses = 12;
 var hotWord = [];
 var wrongLetters = [];
-var lastWord;
 
-for (let i = 0; i < chosenWord.length; i++){
-    hotWord[i] = ' _ ';
+function update() {
+    displayWins.innerText = winCount;
+    displayWord.innerText = hotWord.join('');
+    displayGuesses.innerText = guesses;
+    displayWrong.innerText = wrongLetters.join(' ');
 }
 
-wins.innerText = winCount;
-current.innerText = hotWord.join('');
-remain.innerText = guesses;
-letters.innerText = wrongLetters.join(' ');
+function newGame() {
+    chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
+    guesses = 12;
+    hotword = [];
+    wrongLetters = [];
+    for (let i = 0; i < chosenWord.length; i++){
+        hotWord[i] = ' _ ';
+    }
+    update();
+}
