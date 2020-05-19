@@ -1,30 +1,91 @@
-displayWins = document.querySelector('#wins');
-displayWord = document.querySelector('#currentWord');
-displayGuesses = document.querySelector('#remainingGuesses');
-displayWrong = document.querySelector('#lettersGuessed');
-displayLast = document.querySelector('#lastWord');
+const wordList = ['adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'kepler', 'polanco', 'rosario', 'sano'];
+var chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-const wordList = ['baldelli', 'adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'kepler', 'polanco', 'rosario', 'sano'];
-var chosenWord = wordList[Math.floor(Math.random() * words.length)];
-var winCount = 0;
-var guesses = 12;
-var hotWord = [];
-var wrongLetters = [];
+var displayWins = document.querySelector('#wins');
+var displayWord = document.querySelector('#currentWord');
+var displayGuesses = document.querySelector('#remainingGuesses');
+var displayWrong = document.querySelector('#lettersGuessed');
+var displayLast = document.querySelector('#lastWord');
 
-function update() {
-    displayWins.innerText = winCount;
-    displayWord.innerText = hotWord.join('');
-    displayGuesses.innerText = guesses;
-    displayWrong.innerText = wrongLetters.join(' ');
-}
+var winCount;
+var guesses;
+var correctGuesses;
+var wrongGuesses;
+var lastWord;
 
-function newGame() {
+function chooseWord () {
     chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
-    guesses = 12;
-    hotword = [];
-    wrongLetters = [];
-    for (let i = 0; i < chosenWord.length; i++){
-        hotWord[i] = ' _ ';
-    }
-    update();
 }
+
+function initializeGame() {
+    word = chosenWord;
+    guesses = 12;
+    wrongGuesses = [];
+    correctGuesses = [];
+    winCount = 0;
+  
+    // initialize correctGuesses array with underscores
+    for (var i = 0; i < word.length; i++) {
+      correctGuesses.push('_');
+    }
+  
+    displayWord.innerHTML = correctGuesses.join(' ');
+    displayGuesses.innerHTML = guesses;
+}
+
+function newWord() {
+    chooseWord();
+    word = chosenWord;
+    guesses = 12;
+    wrongGuesses = [];
+    correctGuesses = [];
+    for (var i = 0; i < word.length; i++) {
+        correctGuesses.push('_');
+    }
+    winCount++;
+    displayWord.innerHTML = correctGuesses.join(' ');
+    displayGuesses.innerHTML = guesses;
+    displayWrong.innerHTML = wrongGuesses;
+    displayWins.innerHTML = winCount;
+}
+
+document.onkeyup = function (event) {
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+    updateGuesses(letterGuessed);
+    checkWin();
+};
+
+function updateGuesses(letter) {
+    if (word.indexOf(letter) === -1 && !wrongGuesses.includes(letter)) {
+      wrongGuesses.push(letter);
+      displayWrong.innerHTML = wrongGuesses.join(', ');
+      guesses--;
+      displayGuesses.innerHTML = guesses;
+    } else {
+      for (var i = 0; i < word.length; i++) {
+        if (word[i] === letter) {
+          correctGuesses[i] = letter;
+          displayWord.innerHTML = correctGuesses.join(' ');
+        }
+      }
+     
+    }
+}
+
+function goodjob() {
+    displayLast.innerHTML = 'The last player was '+lastWord+'.';
+}
+
+function checkWin() {
+  if (correctGuesses.indexOf('_') === -1) {
+    lastWord = word;
+    newWord();
+    goodjob();
+
+  } else if (guesses === 0) {
+    alert('You Lost!');
+  }
+}
+
+
+initializeGame();
