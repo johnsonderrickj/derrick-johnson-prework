@@ -78,6 +78,9 @@ function goodjob() {
     var image = document.querySelector('#wordImage');
     var playerpic = `assets/images/${lastWord}.jpg`;
     image.src = playerpic;
+
+    var audio = new Audio('assets/hitcrowdcheer.mp3');
+    audio.play();
 }
 
 function checkWin() {
@@ -87,6 +90,8 @@ function checkWin() {
     goodjob();
 
   } else if (guesses === 0) {
+    var audio2 = new Audio('assets/boo3.mp3');
+    audio2.play();
     alert('You Lost. Try Again!');
     initializeGame();
 
