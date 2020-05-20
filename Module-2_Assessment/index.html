@@ -12,29 +12,24 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="bg">
 
     <header class="page-header">
-        <h1 class="text-center">Minnesota Twins Hangman Game</h1>
+        <h1 class="text-center" style="color: #0C2340; background-color: #D31145; border-bottom: solid 4px #B9975B;">Minnesota Twins Hangman Game</h1>
     </header>
 
     <div class="container">
         <div class="row">
-            <h2 id="lastWord"></h2>
-        </div>
-
-        <div class="row">
-            <div class="col" id="wordImage">
-                <img class="img-responsive" src="assets/images/twins1.png" alt="twins.png">
+            <div class="col main-content">
+                <img class="img-responsive" src="assets/images/twins1.jpg" alt="twins.jpg" id="wordImage">
+                <h2 id="lastWord"></h2>
             </div>
-            <div class="col main-content" style="text-align: center;">
+            <div class="col main-content">
                 <div class="row">
                     <h3 id="start">Press any key to get started!</h3>
                 </div>
                 <div class="row">
                     <h3>Wins: </h3>
-                </div>
-                <div class="row">
                     <h3 id="wins"></h3>
                 </div>
                 <div class="row">
