@@ -1,4 +1,4 @@
-const wordList = ['adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'kepler', 'polanco', 'rosario', 'sano'];
+const wordList = ['adrianza', 'arraez', 'astudillo', 'berrios', 'buxton', 'cruz', 'donaldson', 'garver', 'gonzalez', 'kepler', 'odorizzi', 'polanco', 'rosario', 'sano'];
 var chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
 
 var displayWins = document.querySelector('#wins');
@@ -73,7 +73,11 @@ function updateGuesses(letter) {
 }
 
 function goodjob() {
-    displayLast.innerHTML = 'The last player was '+lastWord+'.';
+    displayLast.innerHTML = 'The last player was '+lastWord+'!';
+
+    var image = document.querySelector('#wordImage');
+    var playerpic = `assets/images/${lastWord}.jpg`;
+    image.src = playerpic;
 }
 
 function checkWin() {
@@ -83,9 +87,12 @@ function checkWin() {
     goodjob();
 
   } else if (guesses === 0) {
-    alert('You Lost!');
+    alert('You Lost. Try Again!');
+    initializeGame();
+
+    displayWins.innerHTML = winCount;
+    displayWrong.innerHTML = wrongGuesses;
   }
 }
-
 
 initializeGame();
