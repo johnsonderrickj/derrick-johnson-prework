@@ -1,0 +1,19 @@
+body {
+    font-family: 'Quantico', sans-serif;
+    color: #ffffff;
+    height: 100%;
+}
+
+.bg {
+    background-image: url(../images/targetfield.jpg);
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-content {
+    background-color: rgba(210, 180, 140, 0.8);
+    padding-top: 10px;
+}
